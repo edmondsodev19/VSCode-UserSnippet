@@ -1,0 +1,199 @@
+{
+  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+
+  // React Related
+  "Create new react component": {
+    "prefix": "fce",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": [
+      "import React, { useState, useEffect } from 'react'",
+      "",
+      "const $1 = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ]
+  },
+
+  "Create useState with placeholder": {
+    "prefix": "us",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState();"]
+  },
+
+  "Create empty useEffect": {
+    "prefix": "ue",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["useEffect(() => {", "\t\t$1", "},[]);", ""]
+  },
+
+  "Create useEffect with console.log object": {
+    "prefix": "uec",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["useEffect(() => {", "\tconsole.log('$1', $1)", "},[$1]);", ""]
+  },
+
+  "Create functional component with export and scss className ": {
+    "prefix": "fcs",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": [
+      "import './$1.scss'",
+      "",
+      "const $TM_FILENAME_BASE = () => {",
+      "\treturn (",
+      "\t\t<div className='$1'></div>",
+      "\t);",
+      "};",
+      "",
+      "export default $TM_FILENAME_BASE;",
+      ""
+    ]
+  },
+
+  // React Native related
+  "[React-Native] Create new react native component": {
+    "prefix": "rnc",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": [
+      "import React, { useState, useEffect } from 'react'",
+      "import { View, Text } from 'react-native'",
+      "",
+      "const $1 = () => {",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t</View>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ]
+  },
+
+  "[React-native] Create border with white color for checking": {
+    "prefix": "bw",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["borderWidth: 1, borderColor: 'white'"]
+  },
+
+  // React inline-CSS related
+  "Add css flex direction row with align & justify center": {
+    "prefix": "fw",
+    "scope": "javascriptreact, typescriptreact",
+    "body": [
+      "style={{",
+      "\tflexDirection: 'row',",
+      "\talignItems: 'center',",
+      "}}"
+    ]
+  },
+
+  "Add css flex row, align center, justify-content: space-between": {
+    "prefix": "fws",
+    "scope": "javascriptreact, typescriptreact",
+    "body": [
+      "style={{",
+      "\tflexDirection: 'row',",
+      "\talignItems: 'center',",
+      "\tjustifyContent: 'space-between',",
+      "}}"
+    ]
+  },
+
+  // NodeJs Related
+  "Create Node.js http create server file": {
+    "prefix": "hc",
+    "scope": "javascript, typescript",
+    "body": [
+      "const http = require('http');",
+      "",
+      "http.createServer((req, res) => {",
+      "\tres.writeHead(200, {'Content-Type': 'text/html'});",
+      "\tres.write($1);",
+      "\tres.end();",
+      "}).listen(8080);"
+    ]
+  },
+
+  // Console.log related
+  "Console.log object": {
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+    "prefix": "cl",
+    "body": ["console.log('$1', $1);"]
+  },
+
+  "Console.group element": {
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+    "prefix": "cg",
+    "body": ["console.group('group name: $1');", "console.log('$2: ', $2);"]
+  },
+
+  "Create console.log('test')": {
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+    "prefix": "ct",
+    "body": ["console.log('test')"]
+  },
+
+  // .css .scss related
+  "create class with file name": {
+    "prefix": "cs",
+    "scope": "css, scss",
+    "body": [".$TM_FILENAME_BASE { ", "\t$1", "}"]
+  },
+
+  "responsive-md-wrapper": {
+    "prefix": "md",
+    "scope": "css, scss",
+    "body": [
+      "@media screen and (min-width: 768px)) {",
+      "\t$1 {",
+      "\t\t$2",
+      "\t}",
+      "}"
+    ]
+  },
+
+  "create border 1px solid white": {
+    "scope": "css, scss",
+    "prefix": "bb",
+    "body": ["border: 1px solid blue"]
+  },
+
+  "Create border 1px solid red": {
+    "scope": "css, scss",
+    "prefix": "bb",
+    "body": ["border: 1px solid red;"]
+  },
+
+  "Create border 1px solid black": {
+    "scope": "css, scss",
+    "prefix": "bb",
+    "body": ["border: 1px solid black;"]
+  },
+
+  "Create background blue": {
+    "scope": "css, scss",
+    "prefix": "bcb",
+    "body": ["background-color: blue;"]
+  }
+}
