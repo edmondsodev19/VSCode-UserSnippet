@@ -19,7 +19,7 @@
   // React Related
   "Create new react component": {
     "prefix": "fce",
-    "scope": "javascript, javascriptreact, typescriptreact",
+    "scope": "javascript, javascriptreact",
     "body": [
       "import React, { useState, useEffect } from 'react'",
       "",
@@ -37,14 +37,20 @@
 
   "Create useState with placeholder": {
     "prefix": "us",
-    "scope": "javascript, javascriptreact, typescriptreact",
-    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState();"]
+    "scope": "javascript, javascriptreact",
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);"]
   },
 
   "Create empty useEffect": {
     "prefix": "ue",
     "scope": "javascript, javascriptreact, typescriptreact",
     "body": ["useEffect(() => {", "\t\t$1", "},[]);", ""]
+  },
+
+  "Create useEffect with log and dependency": {
+    "prefix": "uel",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["useEffect(() => {", "\t\tconsole.log('$1', $1)", "},[$1]);", ""]
   },
 
   "Create useEffect with console.log object": {
@@ -70,6 +76,84 @@
     ]
   },
 
+  "Create justifyContent center & alignItem center ": {
+    "prefix": "ja",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["justifyContent: 'center', alignItems: 'center',"]
+  },
+
+  // React TypeScript related
+  "Create JSX Functional Component in blank file": {
+    "scope": "typescriptreact",
+    "prefix": "fce",
+    "body": [
+      "import {FC, useState, useEffect} from 'react'",
+      // "import './${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}.scss' ",
+      "",
+      "interface I${TM_FILENAME_BASE}Props {}",
+      "",
+      // "const $TM_FILENAME_BASE: FC<${TM_FILENAME_BASE}Props> = ({}:${TM_FILENAME_BASE}Props) => {",
+      "const $TM_FILENAME_BASE: FC<I${TM_FILENAME_BASE}Props> = ({}) => {",
+      "\treturn (",
+      "\t\t<div className='${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}'>$1$TM_FILENAME_BASE</div>",
+      "\t)",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE",
+      ""
+    ],
+    "description": "Create a empty tsx function component with file Name"
+  },
+
+  "[Web] Create border with white red for checking": {
+    "prefix": "bre",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["border: '1px solid red',"]
+  },
+
+  // React TypeScript related
+  "Create JSX Functional Component": {
+    "scope": "typescriptreact",
+    "prefix": "nfce",
+    "body": [
+      // "import './${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}.scss' ",
+      "",
+      "interface I${1}Props {}",
+      "",
+      // "const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({}:${TM_FILENAME_BASE}Props) => {",
+      "const $1: React.FC<I${1}Props> = ({$2}) => {",
+      "\treturn (",
+      "\t\t<div className='${1/(.*)/${1:/camelcase}/}'>$1</div>",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a empty tsx function component with file Name"
+  },
+
+  "Create useState with placeholder in typeScript": {
+    "prefix": "us",
+    "scope": "typescriptreact",
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState<$2>($3);"]
+  },
+
+  "Get Type 'HTMLElement'": {
+    "prefix": "he",
+    "scope": "typescriptreact",
+    "body": ["HTMLElement"]
+  },
+
+  "Get Type 'React.MouseEvent<HTMLElement>'": {
+    "prefix": "mehe",
+    "scope": "typescriptreact",
+    "body": ["React.MouseEvent<HTMLElement>"]
+  },
+
+  "Create Component Props Interface": {
+    "prefix": "tip",
+    "scope": "typescriptreact",
+    "body": ["interface I${TM_FILENAME_BASE}Props {}"]
+  },
+
   // React Native related
   "[React-Native] Create new react native component": {
     "prefix": "rnc",
@@ -93,7 +177,13 @@
   "[React-native] Create border with white color for checking": {
     "prefix": "bw",
     "scope": "javascript, javascriptreact, typescriptreact",
-    "body": ["borderWidth: 1, borderColor: 'white'"]
+    "body": ["borderWidth: 1, borderColor: 'white',"]
+  },
+
+  "[React-native] StyleSheet create row with algin center": {
+    "prefix": "ra",
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "body": ["flexDirection: 'row',", "alignItems: 'center',"]
   },
 
   // React inline-CSS related
@@ -132,6 +222,32 @@
       "\tres.write($1);",
       "\tres.end();",
       "}).listen(8080);"
+    ]
+  },
+
+  "Require library": {
+    "prefix": "re",
+    "scope": "javascript, typescript",
+    "body": ["const $1 = require('$1');"]
+  },
+
+  // ExpressJs related
+  "Create a route": {
+    "prefix": "ejr",
+    "scope": "javascript, typescript",
+    "body": ["app.$1('$2', function (req, res) {",
+              "\t$3",
+              "});"]
+  },
+
+  // JavaScript related
+  "Create handle function": {
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+    "prefix": "hl",
+    "body": [
+      "const handle${1/(.*)/${1:/capitalize}/} = ($2) => {",
+      "\t$3",
+      "};"
     ]
   },
 
@@ -181,7 +297,7 @@
 
   "Create border 1px solid red": {
     "scope": "css, scss",
-    "prefix": "bb",
+    "prefix": "br",
     "body": ["border: 1px solid red;"]
   },
 
@@ -195,5 +311,20 @@
     "scope": "css, scss",
     "prefix": "bcb",
     "body": ["background-color: blue;"]
+  },
+
+  // Folder Structure related
+  "Create import categories": {
+    "scope": "javascript, javascriptreact, typescript, typescriptreact",
+    "prefix": "imf",
+    "body": [
+      "// Libraries",
+      "// Utils",
+      "// Redux",
+      "// API",
+      "// Theme",
+      "// Media",
+      "// Components"
+    ]
   }
 }
